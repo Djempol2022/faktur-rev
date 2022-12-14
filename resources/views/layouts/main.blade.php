@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>{{ $title ?? config('app.name') }}</title>
+	<title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name') }}</title>
 
 	<link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
 	<link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
@@ -17,14 +17,16 @@
 	<link rel="stylesheet" href="{{ asset('vendors/mdi/css/materialdesignicons.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
 
+	@stack('styles')
+
 	<link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
 </head>
 
 <body>
 	<div class="container-scroller">
-		@include('layout.navbar')
+		@include('layouts.navbar')
 		<div class="container-fluid page-body-wrapper">
-			@include('layout.sidebar')
+			@include('layouts.sidebar')
 
 			<div class="main-panel">
 				<div class="content-wrapper">
@@ -64,6 +66,7 @@
 	<!-- Custom js for this page-->
 	<script src="js/dashboard.js"></script>
 	<script src="js/Chart.roundedBarCharts.js"></script>
+	@stack('scripts')
 	<!-- End custom js for this page-->
 </body>
 

@@ -1,4 +1,4 @@
-@extends('layout.main', ['title' => 'Dashboard'])
+@extends('layouts.main', ['title' => 'Dashboard'])
 @section('content')
 	<div class="row">
 		<div class="col-md-12 grid-margin">

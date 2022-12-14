@@ -7,13 +7,18 @@
 	<td>{{ $kabupaten }}</td>
 	<td>{{ $tanggal_in }}</td>
 	<td>
-		<label class="badge badge-warning">{{ $status }}</label>
+		@if ($status == 1)
+			<label class="badge badge-danger">Belum Terverifikasi</label>
+		@elseif ($status == 2)
+			<label class="badge badge-warning">Terverifikasi Samsat</label>
+		@elseif ($status == 3)
+			<label class="badge badge-success">Diterima Dealer</label>
+		@endif
 	</td>
 	<td>
-		<a href="" class="btn btn-sm btn-warning ">
-			<span class="d-flex align-items-center">
-				<i class="mdi mdi-eye mr-1"></i>
-				Detail</span>
-		</a>
+		<button class="btn btn-sm btn-warning btn-icon-text">
+			<i class="mdi mdi-eye btn-icon-prepend"></i>
+			Detail
+		</button>
 	</td>
 </tr>
