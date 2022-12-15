@@ -1,4 +1,4 @@
-@extends('layout.auth', ['title' => 'Login'])
+@extends('layouts.auth', ['title' => 'Login'])
 @section('content')
 	<div class="container-scroller">
 		<div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -11,17 +11,21 @@
 							</div>
 							<h4>Selamat Datang 👋</h4>
 							<p class="font-weight-light">Ayo mulai pekerjaan dengan masuk ke aplikasi FakturBiro.</p>
-							<form class="pt-3">
+							<form class="pt-3" action="{{ route('login') }}" method="POST">
+								@csrf
 								<div class="form-group">
 									<label for="inputEmail" class="font-weight-bold">Email</label>
-									<input type="email" class="form-control form-control-lg rounded" id="inputEmail" placeholder="Username">
+									<input type="email" class="form-control form-control-lg rounded" name="email" id="inputEmail"
+										placeholder="Username">
 								</div>
 								<div class="form-group">
 									<label for="inputPassword" class="font-weight-bold">Password</label>
-									<input type="password" class="form-control form-control-lg rounded" id="inputPassword" placeholder="Password">
+									<input type="password" class="form-control form-control-lg rounded" name="password" id="inputPassword"
+										placeholder="Password">
 								</div>
 								<div class="mt-3">
-									<a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN IN</a>
+									<button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN
+										IN</button>
 								</div>
 								{{-- <div class="my-2 d-flex justify-content-between align-items-center">
 									<div class="form-check">
