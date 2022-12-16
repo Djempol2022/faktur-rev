@@ -1,4 +1,4 @@
-@props(['icon', 'title', 'value', 'color'])
+@props(['icon', 'title', 'value', 'color', 'href'])
 
 @push('styles')
 	<style>
@@ -19,7 +19,8 @@
 @endpush
 
 <div class="col-md-3 mb-4 stretch-card transparent">
-	<div class="card card-{{ $color }}">
+	<a @isset($href) href="{{ $href }}"@endisset
+		class="card card-{{ $color }} text-decoration-none">
 		<div class="card-body">
 			@isset($icon)
 				<div class="bg-light text-primary icon-container @isset($title) mb-2 @endisset">
@@ -33,5 +34,5 @@
 				<p class="fs-30 mb-2">{{ $value }}</p>
 			@endisset
 		</div>
-	</div>
+	</a>
 </div>

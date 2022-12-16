@@ -22,10 +22,11 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')->withSuccess('Signed in');
-        }
-        return redirect("login")->withSuccess('Login details are not valid');
+
+        if (!Auth::attempt($credentials)) return redirect("login")->withErrors('Login details are not valid');
+
+        if (auth()->user()->role == 'dealer') return redirect(route('dealer.dashboard'))->withSuccess('Signed in');
+        if (auth()->user()->role == 'biro') return redirect(route('biro.dashboard'))->withSuccess('Signed in');
     }
 
     public function registration()

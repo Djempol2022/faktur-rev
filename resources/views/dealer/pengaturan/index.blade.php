@@ -13,8 +13,10 @@
 	<div class="row">
 		<div class="col-md-12 grid-margin transparent">
 			<div class="row">
-				<x-dashboard-card icon="account" title="Edit Profil" color="dark-blue" />
-				<x-dashboard-card icon="book-open" title="Edit Password" color="dark-blue" />
+				<x-dashboard-card href="{{ route('dealer.pengaturan.profil') }}" icon="account" title="Edit Profil"
+					color="dark-blue" />
+				<x-dashboard-card href="{{ route('dealer.pengaturan.password') }}" icon="book-open" title="Edit Password"
+					color="dark-blue" />
 			</div>
 		</div>
 	</div>
