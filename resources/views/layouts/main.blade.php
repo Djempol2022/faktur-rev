@@ -5,17 +5,56 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name') }}</title>
 
 	<link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
-	<link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
-	<link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
-	<link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
-	<link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('js/select.dataTables.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('vendors/mdi/css/materialdesignicons.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('js/select.dataTables.min.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/datatables/jquery.dataTables.min.css') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <style>
+        .btn-status {
+            color: #000000 !important;
+            background-color: white;
+            border-color: white;
+			border-radius: 8px;
+            /*set the color you want here*/
+        }
+
+        .btn-status:hover,
+        .btn-status:focus,
+        .btn-status:active,
+        .btn-status.active,
+        .open>.dropdown-toggle.btn-status {
+            color: #fff !important;
+            background-color: #4B49AC;
+            border: none;
+            border-color: white !important;
+            /*set the color you want here*/
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: none;
+            color: black !important;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+            background: none;
+            color: black !important;
+        }
+
+    </style>
 
 	@stack('styles')
 
@@ -46,28 +85,34 @@
 		</div>
 	</div>
 
-	<!-- plugins:js -->
-	<script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
-	<!-- endinject -->
-	<!-- Plugin js for this page -->
-	<script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
-	<script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
-	<script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
-	<script src="{{ asset('js/dataTables.select.min.js') }}"></script>
+    <!-- plugins:js -->
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{ asset('vendors/jquery/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('vendors/datatables.net/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendors/datatables.net/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-	<!-- End plugin js for this page -->
-	<!-- inject:js -->
-	<script src="{{ asset('js/off-canvas.js') }}"></script>
-	<script src="{{ asset('js/hoverable-collapse.js') }}"></script>
-	<script src="{{ asset('js/template.js') }}"></script>
-	<script src="{{ asset('js/settings.js') }}"></script>
-	<script src="{{ asset('js/todolist.js') }}"></script>
-	<!-- endinject -->
-	<!-- Custom js for this page-->
-	<script src="{{ asset('js/dashboard.js') }}"></script>
-	<script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
-	@stack('scripts')
-	<!-- End custom js for this page-->
+    {{-- <script src="vendors/chart.js/Chart.min.js"></script> --}}
+    {{-- <script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/dataTables.select.min.js') }}"></script> --}}
+    {{-- <script src="vendors/js/vendor.bundle.base.js"></script> --}}
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/moment.js') }}"></script>
+    <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('js/jquery.form.min.js') }}"></script>
+    <script src="js/template.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="js/dashboard.js"></script>
+    {{-- <script src="js/Chart.roundedBarCharts.js"></script> --}}
+    @yield('script')
+    <!-- End custom js for this page-->
 </body>
 
 </html>

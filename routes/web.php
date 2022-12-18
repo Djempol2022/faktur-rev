@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FakturController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,15 +46,13 @@ Route::middleware(['auth'])->group(function () {
 
     // BIRO
     Route::prefix('biro')->name('biro.')->middleware(['isBiro'])->group(function () {
-        Route::get('/', function () {
-            return view('biro.dashboard.index');
-        })->name('dashboard');
-        Route::get('/data-faktur', function () {
-            return view('biro.data-faktur.index');
-        })->name('data-faktur');
-        Route::get('/pengaturan', function () {
-            return view('biro.pengaturan.index');
-        })->name('pengaturan');
+        Route::get('/',                     [FakturController::class, 'index'])->name('BiroDashboard');
+        Route::get('/data-faktur',           [FakturController::class, 'data_faktur'])->name('DataFaktur');
+        Route::patch('/kirim-ke-dealer',    [FakturController::class, 'kirim_ke_dealer'])->name('KirimKeDealer');
+        Route::patch('/verifikasi-samsat',  [FakturController::class, 'verifikasi_samsat'])->name('VerifikasiSamsat');
+        Route::get('/pengaturan',           [FakturController::class, 'pengaturan'])->name('Pengaturan');
+        Route::any('/faktur',               [FakturController::class, 'data'])->name('Faktur');
+        Route::post('/data-perbulan',       [FakturController::class, 'total_perbulan']);
     });
 
     // Log Out

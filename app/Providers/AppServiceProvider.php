@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Blade;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,12 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::if('dealer', function () {
-            return auth()->user()->role == 'dealer';
-        });
-
-        Blade::if('biro', function () {
-            return auth()->user()->role == 'biro';
-        });
+        config(['app.locale' => 'id']);
+        Carbon::setLocale('id');
     }
 }
