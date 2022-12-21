@@ -17,13 +17,13 @@ class FakturFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => fake()->numberBetween(1, 10),
+            'user_id' => fake()->numberBetween(14, 23),
             'nomor_faktur' => fake()->numberBetween(1, 1000000000000),
             'nama_nasabah' => fake()->name(),
             'nomor_rangka' => fake()->numberBetween(1, 10000000),
             'nomor_mesin' => fake()->numberBetween(1, 10000000),
             'kabupaten_id' => fake()->randomElement(['61', '388', '415']),
-            'status_id' => fake()->numberBetween($min = 1, $max = 3),
+            'status_id' => fake()->randomElement(['1', '2', '3']),
             'created_at'=> fake()->dateTimeBetween($startDate = '-2 years', $endDate = 'now')
         ];
     }

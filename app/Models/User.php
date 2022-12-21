@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function kabupatenRelasi(){
+        return $this->belongsTo(Kabupaten::class, 'kabupaten_id', 'id');
+    }
 }

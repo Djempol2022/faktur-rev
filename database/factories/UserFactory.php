@@ -24,6 +24,7 @@ class UserFactory extends Factory
             'password' => '$2a$12$bApJxRvnpjexlrtHmv.RNe4BhbUHJx/8Tm9otkl/5Xtkn/A6JHoUq', // password
             'remember_token' => Str::random(10),
             'role' => fake()->randomElement(['dealer', 'biro']),
+            'kabupaten_id' => fake()->randomElement(['61', '388', '415'])
         ];
     }
 

@@ -26,6 +26,9 @@
 			<x-sidebar-item :href="route('biro.DataFaktur')" :active="request()->routeIs('biro.DataFaktur*')" icon="mdi-database">
 				{{ __('Data Faktur') }}
 			</x-sidebar-item>
+			<x-sidebar-item :href="route('biro.DataPengguna')" :active="request()->routeIs('biro.DataPengguna*')" icon="mdi-account">
+				{{ __('Data Pengguna') }}
+			</x-sidebar-item>
 			<x-sidebar-item :href="route('biro.Pengaturan')" :active="request()->routeIs('biro.Pengaturan*')" icon="mdi-settings">
 				{{ __('Pengaturan') }}
 			</x-sidebar-item>

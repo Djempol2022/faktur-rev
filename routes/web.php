@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\FakturController;
+use App\Http\Controllers\PenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,12 +49,25 @@ Route::middleware(['auth'])->group(function () {
     // BIRO
     Route::prefix('biro')->name('biro.')->middleware(['isBiro'])->group(function () {
         Route::get('/',                     [FakturController::class, 'index'])->name('BiroDashboard');
-        Route::get('/data-faktur',           [FakturController::class, 'data_faktur'])->name('DataFaktur');
+        Route::get('/data-faktur',          [FakturController::class, 'data_faktur'])->name('DataFaktur');
         Route::patch('/kirim-ke-dealer',    [FakturController::class, 'kirim_ke_dealer'])->name('KirimKeDealer');
         Route::patch('/verifikasi-samsat',  [FakturController::class, 'verifikasi_samsat'])->name('VerifikasiSamsat');
-        Route::get('/pengaturan',           [FakturController::class, 'pengaturan'])->name('Pengaturan');
         Route::any('/faktur',               [FakturController::class, 'data'])->name('Faktur');
+        Route::get('/pengaturan',           [FakturController::class, 'pengaturan'])->name('Pengaturan');
         Route::post('/data-perbulan',       [FakturController::class, 'total_perbulan']);
+        
+        Route::get('/pengguna',             [PenggunaController::class, 'data_pengguna'])->name('DataPengguna');
+        Route::post('/tambah-pengguna',     [PenggunaController::class, 'tambah_pengguna'])->name('TambahPengguna');
+        Route::post('/edit-pengguna/{id}',  [PenggunaController::class, 'edit_pengguna'])->name('EditPengguna');
+        Route::get('/hapus-pengguna/{id}',  [PenggunaController::class, 'hapus_pengguna']);
+        Route::get('/pengaturan',           [PenggunaController::class, 'pengaturan'])->name('Pengaturan');
+        Route::get('/edit-profil',          [PenggunaController::class, 'edit_profil'])->name('EditProfil');
+        Route::post('/updated-profil',      [PenggunaController::class, 'profil_update'])->name('UpdatedProfil');
+        Route::get('/edit-password',        [PenggunaController::class, 'edit_password'])->name('EditPassword');
+        Route::post('/updated-password',    [PenggunaController::class, 'password_update'])->name('UpdatedPassword');
+        Route::get('/kelola-kabupaten',     [BerandaController::class, 'data_kabupaten'])->name('KelolaKabupaten');
+        Route::post('/aktif-kabupaten',     [BerandaController::class, 'aktifkan_kabupaten'])->name('AktifkanKabupaten');
+        Route::get('/hapus-kabupaten/{id}', [BerandaController::class, 'nonaktifkan_kabupaten']);
     });
 
     // Log Out
