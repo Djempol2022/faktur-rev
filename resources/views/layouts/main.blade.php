@@ -56,6 +56,26 @@
             color: black !important;
         }
 
+        /* CSS New Biro */
+        * {
+            font-family: 'Nunito';
+        }
+
+        .card-dashboard-biro {
+            border-radius: 25px;
+            width: 280px;
+            height: 145px;
+            
+        }
+
+        .Font-20{
+            font-size: 20px;
+          
+        }
+
+        .Font-32{
+            font-size: 32px
+        }
     </style>
 
     @stack('styles')
@@ -74,16 +94,8 @@
                 <div class="content-wrapper">
                     @yield('content')
                 </div>
-
                 <footer class="footer">
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.
-                            Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin
-                                template</a> from BootstrapDash. All
-                            rights reserved.</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made
-                            with <i class="ti-heart text-danger ml-1"></i></span>
-                    </div>
+                    <p class="text-muted text-center">Copyright © 2022 <span class="font-weight-bold" style="color: #4B49AC ">Faktur Application</span></p>
                 </footer>
             </div>
         </div>
@@ -117,10 +129,9 @@
     <!-- Custom js for this page-->
     <script src="js/dashboard.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#table1').DataTable();
         });
-
     </script>
     {{-- <script src="js/Chart.roundedBarCharts.js"></script> --}}
     @yield('script')

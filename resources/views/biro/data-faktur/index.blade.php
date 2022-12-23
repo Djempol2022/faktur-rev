@@ -8,8 +8,7 @@
     </div>
 </div>
 <div class="row justify-content-between">
-    <div class="col-md-12">
-        <div class="card-body">
+    <div class="col-md-12" style="padding-top: 2.1rem">
             <div class="template-demo">
                 <a href="#" status-id=""
                     class="btn btn-status tampil_status"
@@ -38,19 +37,17 @@
                 @endif
                 @endforeach
             </div>
-        </div>
     </div>
-    <div class="col-md-4">
-        <div class="card-body">
-            <div class="template-demo">
-                <select class="form-control form-control-sm filter" id="filter-kabupaten">
+    <div class="col-md-4 py-3">
+            
+                <select class="form-control form-control-sm filter py-1" style="width: 
+                167px; border-radius: 12px;" id="filter-kabupaten">
                     <option value="">Pilih Kabupaten</option>
                     @foreach ($kabupaten as $dataKabupaten)
                     <option value="{{ $dataKabupaten->id }}">{{ $dataKabupaten->kabupaten }}</option>
                     @endforeach
                 </select>
-            </div>
-        </div>
+          
     </div>
 </div>
 <div class="row justify-content-between">
@@ -58,7 +55,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="table_faktur" class="table table-bordered w-100">
+                    <table id="table_faktur" class="table  w-100">
                         <thead>
                             <tr>
                                 {{-- <th class="v-align-middle" style="width: 50px;">No</th> --}}
@@ -66,8 +63,8 @@
                                 <th>Nama Nasabah</th>
                                 <th>Kabupaten</th>
                                 <th>Tanggal In</th>
-                                <th class="v-align-middle" style="width: 50px; min-width: 50px;">Aksi</th>
-                                <th>Status Faktur</th>
+                                <th class="v-align-middle text-center" style="width: 50px; min-width: 50px;">Aksi</th>
+                                <th class="text-center">Status Faktur</th>
                             </tr>
                         </thead>
                     </table>
@@ -79,7 +76,8 @@
 
 
 <div id="modal-edit1" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-dialog" style="width: 
+    604px;" role="document">
         <form id="form-edit1" class="form-horizontal w-100" action="{{ route('biro.VerifikasiSamsat') }}" role="form"
             data-parsley-validate novalidate method="POST" enctype="multipart/form-data">
             @csrf
@@ -128,7 +126,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-submit btn-primary btn-block">Verifikasi</button>
+                    <button type="submit" class="btn btn-submit btn-primary btn-block" style="border-radius: 12px;">Verifikasi</button>
                 </div>
             </div>
         </form>
@@ -136,7 +134,8 @@
 </div>
 
 <div id="modal-edit2" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered" style="width: 
+    604px;" role="document">
         <form id="form-edit2" class="form-horizontal w-100" action="{{ route('biro.KirimKeDealer') }}" role="form"
             data-parsley-validate novalidate method="POST" enctype="multipart/form-data">
             @csrf
@@ -255,7 +254,7 @@
                 "render": function (data, type, row, meta) {
                     let tampilan;
                     if(row.status_id == "1"){
-                        tampilan = `<button onclick="tampilDetailFaktur1(${row.id})" class="btn btn-sm btn-warning btn-block">Detail</buttom>`
+                        tampilan = `<button onclick="tampilDetailFaktur1(${row.id})" class="btn btn-sm btn-warning btn-block px-0">Detail</buttom>`
                     }
                     else if(row.status_id == "2"){
                         tampilan = `<button onclick="tampilDetailFaktur2(${row.id})" class="btn btn-sm btn-warning btn-block">Detail</buttom>`
