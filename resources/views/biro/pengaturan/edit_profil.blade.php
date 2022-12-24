@@ -30,7 +30,7 @@
                   <div class="row ">
                   <div class="col-md-12 stretch-card grid-margin grid-margin-md-0 ">
                     <div class="card data-icon-card-primary" style="border: none">
-                      <div class="row">
+                      <div class="row pb-5">
                         <div class="col-sm-2">
                           <center>
                             @if (Auth::user()->foto != null)
@@ -117,13 +117,15 @@
                     <label for="exampleInputName1" style="font-size: medium;">Name</label>
                     <input type="text" name="name" class="form-control" value="{{Auth::user()->name}}" placeholder="Name">
                   </div>
-                  <div class="form-group">
+                  <div class="form-group pt-4">
                     <label for="exampleInputEmail3" style="font-size: medium;">Email address</label>
                     <input type="email" name="email" class="form-control" value="{{Auth::user()->email}}"  placeholder="Email">
                   </div>
                   
-                  <button type="submit" class="btn btn-dark mr-2 btn-block" style="border: none;background: #4747A1;border-radius: 10px;">Simpan Perubahan</button>
-                  {{-- <a href="{{ route('biro.Pengaturan') }}" class="btn btn-light">Cancel</a> --}}
+                  <div class="pt-4">
+                    <button type="submit" class="btn btn-dark mr-2 btn-block py-3 " style="border: none;background: #4747A1;border-radius: 10px;">Simpan Perubahan</button>
+                    {{-- <a href="{{ route('biro.Pengaturan') }}" class="btn btn-light">Cancel</a> --}}
+                  </div>
                 </form>
               </div>
             </div>

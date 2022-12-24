@@ -9,16 +9,15 @@
 </div>
 <div class="row justify-content-between">
     <div class="col-md-12">
-        <div class="card-body">
-            <div class="template-demo">
+            <div class="template-demo mt-4 mb-3">
                 <a href="#" status-id=""
-                    class="btn btn-primary tampil_status"
+                    class="btn tampil_status text-white"
                     data-original-title="Semua Data" data-toggle="modal"
-                    data-target="#modal-pengguna">
-                    Tambah Data
+                    data-target="#modal-pengguna"
+                    style="background-color: #4B49AC; border-radius:12px;">
+                    <span class="font-weight-bold" style="font-size: 20px;">+ </span>Tambah Akun
                 </a>
             </div>
-        </div>
     </div>
 </div>
 <div class="row justify-content-between">
@@ -26,14 +25,14 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="table1" class="table table-bordered w-100">
+                    <table id="table1" class="table table-hover w-100">
                         <thead>
                             <tr>
                                 {{-- <th class="v-align-middle" style="width: 50px;">No</th> --}}
                                 <th>Nomor Dealer</th>
                                 <th>Email</th>
                                 <th>Kabupaten</th>
-                                <th class="v-align-middle" style="width: 50px; min-width: 50px;">Aksi</th>
+                                <th class="text-center" style="width: 50px; min-width: 50px;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,16 +60,16 @@
                                                         <div class="modal-body">
                                                         <div class="card-body">
                                                             <div class="form-group">
-                                                                <label for="exampleInputUsername1">Nama Dealer</label>
-                                                                <input type="text" class="form-control" id="exampleInputUsername1" value="{{ $pengguna->name }}" name="name" placeholder="Username" required>
+                                                                <label for="exampleInputUsername1" class="font-weight-bold">Nama Dealer</label>
+                                                                <input type="text" class="form-control" id="exampleInputUsername1" value="{{ $pengguna->name }}" name="name" placeholder="Username" style="border-radius: 5px;" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="exampleInputEmail1">Email</label>
-                                                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{ $pengguna->email }}" name="email" placeholder="Email" required>
+                                                                <label for="exampleInputEmail1" class="font-weight-bold">Email</label>
+                                                                <input type="email" class="form-control" id="exampleInputEmail1" value="{{ $pengguna->email }}" name="email" placeholder="Email" style="border-radius: 5px;" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="exampleInputPassword1">Kabupaten</label>
-                                                                <select class="form-control form-control-sm filter" name="kabupaten_id" id="filter-kabupaten" required>
+                                                                <label for="exampleInputPassword1" class="font-weight-bold">Kabupaten</label>
+                                                                <select class="form-control form-control-sm py-2 filter" name="kabupaten_id" id="filter-kabupaten" style="border-radius: 5px;" required>
                                                                     <option value="" disabled>Pilih Kabupaten</option>
                                                                     @foreach ($kabupaten as $dataKabupaten)
                                                                     @if ($pengguna->kabupaten_id == $dataKabupaten->id)
@@ -84,7 +83,7 @@
                                         
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-submit btn-primary btn-block">Buat Akun</button>
+                                                            <button type="submit" class="btn btn-submit  btn-block text-white py-2" style="border-radius: 8px; background-color: #4B49AC;">Simpan Perubahan</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -119,17 +118,17 @@
                 </div>      
                 <div class="modal-body">
                 <div class="card-body">
-                    <div class="form-group">
-                        <label for="exampleInputUsername1">Nama Dealer</label>
-                        <input type="text" class="form-control" id="exampleInputUsername1" name="name" placeholder="Username" required>
+                    <div class="form-group pb-2">
+                        <label for="exampleInputUsername1" class="font-weight-bold">Nama Dealer</label>
+                        <input type="text" class="form-control" style="border-radius: 5px;" id="exampleInputUsername1" name="name" placeholder="Masukan Nama Dealer Disini. . ." required>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" required>
+                    <div class="form-group py-2">
+                        <label for="exampleInputEmail1" class="font-weight-bold">Email</label>
+                        <input type="email" class="form-control" style="border-radius: 5px;" id="exampleInputEmail1" name="email" placeholder="Masukan Email Disini. . ." required>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Kabupaten</label>
-                        <select class="form-control form-control-sm filter" name="kabupaten_id" id="filter-kabupaten" required>
+                    <div class="form-group py-2">
+                        <label for="exampleInputPassword1" class="font-weight-bold">Kabupaten</label>
+                        <select class="form-control form-control-sm filter py-2" style="border-radius: 5px;" name="kabupaten_id" id="filter-kabupaten" required>
                             <option value="" selected disabled>Pilih Kabupaten</option>
                             @foreach ($kabupaten as $dataKabupaten)
                                 <option value="{{ $dataKabupaten->id }}">{{ $dataKabupaten->kabupaten }}</option>
@@ -140,7 +139,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-submit btn-primary btn-block">Buat Akun</button>
+                    <button type="submit" class="btn btn-submit btn-primary btn-block py-2" style="background-color: #4B49AC; border-radius: 8px;">Buat Akun</button>
                 </div>
             </div>
         </form>

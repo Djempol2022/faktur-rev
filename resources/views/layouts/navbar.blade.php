@@ -1,10 +1,10 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 	<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-		<a class="navbar-brand brand-logo mr-5" href="index.html">
-			<img src="{{ asset('images/logo.png') }}" class="mr-2" alt="logo" />
+		<a class="navbar-brand brand-logo mr-4" href="index.html">
+			<img src="{{ asset('images/logofakturbesar.png') }}" class="ml-3" alt="logo" />
 		</a>
 		<a class="navbar-brand brand-logo-mini" href="index.html">
-			<img class="img-responsive" src="{{ asset('images/logo-minimized.png') }}" alt="logo" />
+			<img class="img-responsive ml-3" src="{{ asset('images/logokecil.png') }}" alt="logo" />
 		</a>
 	</div>
 	<div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">

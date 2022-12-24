@@ -1,4 +1,5 @@
 @extends('layouts.main', ['title' => 'Dashboard'])
+
 @section('content')
 	<div class="row">
 		<div class="col-md-12 grid-margin">
@@ -10,8 +11,8 @@
 				<div class="col-12 col-xl-4"> {{-- Time Dropdown --}}
 					<div class="justify-content-end d-flex">
 						<div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-							<select class="form-control form-control-sm filterkan" id="filter-perbulan">
-								<option value="">Hari ini</option>
+							<select class="form-control form-control-sm filterkan rounded-pill" id="filter-perbulan">
+								<option value="">Pilih Bulan</option>
 								<option value="1">Januari</option>
 								<option value="2">Februari</option>
 								<option value="3">Maret</option>
@@ -53,27 +54,27 @@
 	<div class="row"> {{-- Card --}}
 		<div class="col-md-12 grid-margin transparent">
 			<div class="row">
-				<div class="col-md-4 mb-4 stretch-card transparent">
-					<div class="card card-tale">
-						<div class="card-body">
-							<p class="mb-4">Faktur Masuk</p>
-							<p class="fs-30 mb-2">{{ $faktur_hariini }}</p>
+				<div class="col-md-4 mb-4 stretch-card transparent ">
+					<div class="card card-tale border card-dashboard-biro">
+						<div class="card-body" style="padding-top: 2rem;">
+							<p class="mb-4 Font-20">Faktur Masuk</p>
+							<p class="fs-30 mb-2 Font-32 font-weight-bold">{{ $faktur_hariini }} Faktur</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 mb-4 stretch-card transparent">
-					<div class="card card-dark-blue">
-						<div class="card-body">
-							<p class="mb-4">Faktur Terverifikasi</p>
-							<p class="total-terverifikasi fs-30 mb-2">{{ $faktur_terverifikasi }}</p>
+				<div class="col-md-4 mb-4 stretch-card transparent ">
+					<div class="card card-dark-blue card-dashboard-biro">
+						<div class="card-body" style="padding-top: 2rem;">
+							<p class="mb-4 Font-20">Faktur Terverifikasi</p>
+							<p class="total-terverifikasi fs-30 mb-2 Font-32 font-weight-bold">{{ $faktur_terverifikasi }} Faktur</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 mb-4 stretch-card transparent">
-					<div class="card card-light-danger">
-						<div class="card-body">
-							<p class="mb-4">Total Keseluruhan Faktur</p>
-							<p class="fs-30 mb-2">{{ $faktur_semua }}</p>
+				<div class="col-md-4 mb-4 stretch-card transparent ">
+					<div class="card card-tale border card-dashboard-biro">
+						<div class="card-body" style="padding-top: 2rem;">
+							<p class="mb-4 Font-20">Total Keseluruhan Faktur</p>
+							<p class="fs-30 mb-2 Font-32 font-weight-bold">{{ $faktur_semua }} Faktur</p>
 						</div>
 					</div>
 				</div>

@@ -8,17 +8,13 @@
     </div>
 </div>
 <div class="row justify-content-between">
-    <div class="col-md-12">
-        <div class="card-body">
-            <div class="template-demo">
+    <div class="col-md-12 pt-5 pb-3">
                 <a href="#" status-id=""
                 class="btn btn-dark mr-2" style="border: none;background: #4747A1;border-radius: 10px;"
                     data-original-title="Semua Data" data-toggle="modal"
                     data-target="#modal-kabupaten">
-                    Tambah Data
+                    <span class="font-weight-bold">+</span>Tambah Data
                 </a>
-            </div>
-        </div>
     </div>
 </div>
 <div class="row justify-content-between">

@@ -59,8 +59,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                  <button type="submit" class="btn btn-dark mr-2 btn-block" style="border: none;background: #4747A1;border-radius: 10px;">Simpan Perubahan</button>
+                <div class="col-md-4 pt-3">
+                  <button type="submit" class="btn btn-dark mr-2 btn-block py-3" style="border: none;background: #4747A1;border-radius: 10px;">Simpan Perubahan</button>
                 </div>
                 </form>
               </div>

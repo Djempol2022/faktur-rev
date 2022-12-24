@@ -4,9 +4,8 @@
 	<style>
 		.icon-container {
 			position: relative;
-			border-radius: 9999px;
-			width: 2rem;
-			height: 2rem;
+			width: 280px;
+            height: 145px;
 		}
 
 		.icon-symbol {
@@ -15,6 +14,7 @@
 			left: 50%;
 			transform: translate(-50%, -50%)
 		}
+		
 	</style>
 @endpush
 
@@ -23,7 +23,7 @@
 		class="card card-{{ $color }} text-decoration-none">
 		<div class="card-body">
 			@isset($icon)
-				<div class="bg-light text-primary icon-container @isset($title) mb-2 @endisset">
+				<div class="bg-light text-primary icon-container  @isset($title) mb-2 @endisset">
 					<i class="mdi mdi-{{ $icon }} icon-symbol"></i>
 				</div>
 			@endisset
