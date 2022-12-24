@@ -76,6 +76,7 @@
         .Font-32{
             font-size: 32px
         }
+
     </style>
 
     @stack('styles')
@@ -95,7 +96,7 @@
                     @yield('content')
                 </div>
                 <footer class="footer">
-                    <p class="text-muted text-center">Copyright © 2022 <span class="font-weight-bold" style="color: #4B49AC ">Faktur Application</span></p>
+                    <p class="text-muted text-center">Copyright © 2022 <span class="font-weight-bold" style="color: #4B49AC ">E-Faktur Devill Singkawang.</span></p>
                 </footer>
             </div>
         </div>

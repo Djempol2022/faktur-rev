@@ -54,7 +54,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive table-hover">
                     <table id="table_faktur" class="table  w-100">
                         <thead>
                             <tr>
@@ -90,7 +90,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>      
-                <div class="modal-body">
+                <div class="modal-body py-0">
                     <div class="form-group">
 						<strong>Nomor Faktur</strong>
 						<p name="nomor_faktur" class="nomor_faktur" id="nomor_faktur"></p>
@@ -126,6 +126,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <p class="text-start">*Tekan tombol verifikasi untuk melanjutkan verifikasi ke samsat</p>
                     <button type="submit" class="btn btn-submit btn-primary btn-block" style="border-radius: 12px;">Verifikasi</button>
                 </div>
             </div>
@@ -179,7 +180,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <p>Tekan tombol simpan untuk dikirim ke dealer</p>
+                    <p>*Tekan tombol simpan untuk dikirim ke dealer</p>
                     <button type="submit" class="btn btn-submit btn-primary btn-block">Simpan</button>
                 </div>
             </div>
@@ -254,13 +255,13 @@
                 "render": function (data, type, row, meta) {
                     let tampilan;
                     if(row.status_id == "1"){
-                        tampilan = `<button onclick="tampilDetailFaktur1(${row.id})" class="btn btn-sm btn-warning btn-block px-0">Detail</buttom>`
+                        tampilan = `<button onclick="tampilDetailFaktur1(${row.id})" class="btn btn-sm btn-warning btn-block px-0 font-weight-bold">Detail</buttom>`
                     }
                     else if(row.status_id == "2"){
-                        tampilan = `<button onclick="tampilDetailFaktur2(${row.id})" class="btn btn-sm btn-warning btn-block">Detail</buttom>`
+                        tampilan = `<button onclick="tampilDetailFaktur2(${row.id})" class="btn btn-sm btn-warning btn-block font-weight-bold">Detail</buttom>`
                     }
                     else if(row.status_id == "3"){
-                        tampilan = `<button onclick="tampilDetailFaktur3(${row.id})" class="btn btn-sm btn-warning btn-block">Detail</buttom>`
+                        tampilan = `<button onclick="tampilDetailFaktur3(${row.id})" class="btn btn-sm btn-warning btn-block font-weight-bold">Detail</buttom>`
                     }
                     return tampilan;
                 }
@@ -271,13 +272,13 @@
                 "render": function (data, type, row, meta) {
                     let tampilan;
                     if(row.status_relasi.id == "1"){
-                        tampilan = `<button class="btn btn-sm btn-danger btn-block">Belum Terverifikasi</buttom>`
+                        tampilan = `<button class="btn btn-sm btn-danger btn-block font-weight-bold">Belum Terverifikasi</buttom>`
                     }
                     else if(row.status_relasi.id == "2"){
-                        tampilan = `<button class="btn btn-sm btn-warning btn-block">Terverifikasi Samsat</buttom>`
+                        tampilan = `<button class="btn btn-sm btn-warning btn-block font-weight-bold">Terverifikasi Samsat</buttom>`
                     }
                     else if(row.status_relasi.id == "3"){
-                        tampilan = `<button class="btn btn-sm btn-success btn-block">Biro ke Dealer</buttom>`
+                        tampilan = `<button class="btn btn-sm btn-success btn-block font-weight-bold">Diterima Dealer</buttom>`
                     }
                     return tampilan;
                 }
