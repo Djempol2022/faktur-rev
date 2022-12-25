@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faktur;
 use App\Models\Kabupaten;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -12,11 +13,20 @@ class BerandaController extends Controller
         return view('FE_All.beranda');
     }
 
+    public function total_perbulan(Request $request){
+
+        if($request->ajax()){
+            $data = $request->all();
+            $dataFaktur = Faktur::whereMonth('created_at', $data['bulan_value'])->count();
+            return response()->json($dataFaktur);
+        }
+    }
+
     public function data_kabupaten(){
         $semua_kabupaten = Kabupaten::get();
         $data_kabupaten = Kabupaten::where('aktif', 1)->get();
         // dd($data_kabupaten);
-        return view('biro.pengaturan.kelola_kabupaten', compact('data_kabupaten', 'semua_kabupaten'));
+        return view('pengaturan.kelola_kabupaten', compact('data_kabupaten', 'semua_kabupaten'));
     }
 
     public function aktifkan_kabupaten(Request $request){

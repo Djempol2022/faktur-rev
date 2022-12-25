@@ -11,7 +11,7 @@
 				<div class="col-12 col-xl-4"> {{-- Time Dropdown --}}
 					<div class="justify-content-end d-flex">
 						<div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-							<select class="form-control form-control-sm filterkan rounded-pill" id="filter-perbulan">
+							<select class="form-control form-control-sm filter rounded-pill" id="filter-perbulan">
 								<option value="">Pilih Bulan</option>
 								<option value="1">Januari</option>
 								<option value="2">Februari</option>
@@ -85,16 +85,16 @@
 @endsection
 @section('script')
 <script>
-		$.ajaxSetup({
+    $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
 
-	$(".filterkan").change(function () {
-		var bulan_value = $('#filter-perbulan').val()
+    $(".filter").change(function () {
+        var bulan_value = $('#filter-perbulan').val()
         $.ajax({
-            url: '/data-perbulan',
+            url: "{{ route('DataPerbulan') }}",
             data: {
                 bulan_value: bulan_value
             },
@@ -106,6 +106,7 @@
                 alert("error");
             }
         });
-	});
+    })
 </script>
 @endsection
+

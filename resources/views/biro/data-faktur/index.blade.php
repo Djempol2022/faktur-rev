@@ -76,8 +76,12 @@
 
 
 <div id="modal-edit1" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" style="width: 
-    604px;" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-md" style="position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 20px;
+    margin-bottom: 16%;
+    role="document">
         <form id="form-edit1" class="form-horizontal w-100" action="{{ route('biro.VerifikasiSamsat') }}" role="form"
             data-parsley-validate novalidate method="POST" enctype="multipart/form-data">
             @csrf
@@ -85,7 +89,7 @@
             {{ method_field('PATCH') }}
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><b>Detail Data Faktur</b></h5>
+                    <h5 class="modal-title"><b>Detail Data Faktur&nbsp;</h5><h5 class="modal-title nama_nasabah" style="font-weight: bold"></h5></b>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -101,19 +105,19 @@
                     </div>
                     <div class="form-group">
 						<strong>Nama Nasabah</strong>
-						<p name="nomor_faktur" class="nama_nasabah" id="nama_nasabah"></p>
+						<p name="nama_nasabah" class="nama_nasabah" id="nama_nasabah"></p>
                     </div>
                     <div class="form-group">
-						<strong>Nama Nasabah</strong>
-						<p name="nomor_faktur" class="nomor_rangka" id="nomor_rangka"></p>
+						<strong>Nomor Rangka</strong>
+						<p name="nomor_rangka" class="nomor_rangka" id="nama_nasabah"></p>
                     </div>
                     <div class="form-group">
 						<strong>Nomor Mesin</strong>
-						<p name="nomor_faktur" class="nomor_mesin" id="nomor_mesin"></p>
+						<p name="nomor_mesin" class="nomor_mesin" id="nomor_mesin"></p>
                     </div>
                     <div class="form-group">
 						<strong>Nama Kabupaten</strong>
-						<p name="nomor_faktur" class="kabupaten_id" id="kabupaten_id"></p>
+						<p name="kabupaten_id" class="kabupaten_id" id="kabupaten_id"></p>
                     </div>
                     <div class="form-group">
 						<strong>Tanggal In</strong>
@@ -125,9 +129,9 @@
                             placeholder="Example input" required="">
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="padding: 10px 26px;">
                     <p class="text-start">*Tekan tombol verifikasi untuk melanjutkan verifikasi ke samsat</p>
-                    <button type="submit" class="btn btn-submit btn-primary btn-block" style="border-radius: 12px;">Verifikasi</button>
+                    <button type="submit" class="btn btn-dark mr-2 btn-block" style="border: none;background: #4747A1;border-radius: 12px;">Verifikasi</button>
                 </div>
             </div>
         </form>
@@ -135,8 +139,12 @@
 </div>
 
 <div id="modal-edit2" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" style="width: 
-    604px;" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-md" style="position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 20px;
+    margin-bottom: 16%;
+    role="document">
         <form id="form-edit2" class="form-horizontal w-100" action="{{ route('biro.KirimKeDealer') }}" role="form"
             data-parsley-validate novalidate method="POST" enctype="multipart/form-data">
             @csrf
@@ -144,12 +152,12 @@
             {{ method_field('PATCH') }}
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><b>Detail Data Faktur</b></h5>
+                    <h5 class="modal-title"><b>Detail Data Faktur&nbsp;</h5><h5 class="modal-title nama_nasabah" style="font-weight: bold"></h5></b>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>         
-                <div class="modal-body">
+                <div class="modal-body py-0">
                     <div class="form-group">
 						<strong>Nomor Faktur</strong>
 						<p name="nomor_faktur" class="nomor_faktur" id="nomor_faktur"></p>
@@ -160,7 +168,11 @@
                     </div>
                     <div class="form-group">
 						<strong>Nama Nasabah</strong>
-						<p name="nomor_faktur" class="nomor_rangka" id="nomor_rangka"></p>
+						<p name="nama_nasabah" class="nama_nasabah" id="nama_nasabah"></p>
+                    </div>
+                    <div class="form-group">
+						<strong>Nomor Rangka</strong>
+						<p name="nomor_rangka" class="nomor_rangka" id="nama_nasabah"></p>
                     </div>
                     <div class="form-group">
 						<strong>Nomor Mesin</strong>
@@ -179,9 +191,9 @@
 						<p name="updated_at" class="updated_at" id="updated_at"></p>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="padding: 5px 26px;">
                     <p>*Tekan tombol simpan untuk dikirim ke dealer</p>
-                    <button type="submit" class="btn btn-submit btn-primary btn-block">Simpan</button>
+                    <button type="submit" class="btn btn-dark mr-2 btn-block" style="border: none;background: #4747A1;border-radius: 12px;">Simpan</button>
                 </div>
             </div>
         </form>
@@ -208,7 +220,7 @@
         "processing": true,
         "bServerSide": true,
         ajax: {
-            url: "{{ route('biro.Faktur') }}",
+            url: "{{ route('Faktur') }}",
             type: "POST",
             data:function(d){
                 d.data_kabupaten = data_kabupaten;

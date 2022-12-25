@@ -7,7 +7,7 @@
 					<div class="col-lg-4 mx-auto">
 						<div class="auth-form-light text-left py-5 px-4 px-sm-5" style="border-radius: 12px; box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);">
 							<div class="brand-logo">
-								<img src="{{ asset('images/logofakturbesar.png') }}" class="w-75" alt="logo">
+								<img src="{{ asset('images/Logofakturbesar.png') }}" class="w-75" alt="logo">
 							</div>
 							<h4>Selamat Datang 👋</h4>
 							<p class="font-weight-normal">Ayo mulai pekerjaan dengan masuk ke aplikasi<br>E-Faktur Devill Singkawang.</p>

@@ -46,13 +46,13 @@
                                             <i class="mdi mdi-pen btn-icon-prepend"  data-toggle="modal"
                                             data-target="#modal-edit-pengguna{{ $pengguna->id }}"></i>
                                         </button>
-                                        <div id="modal-edit-pengguna{{ $pengguna->id }}" class="modal fade" tabindex="-1" role="dialog">
+                                        <div id="modal-edit-pengguna{{ $pengguna->id }}" class="modal fade" role="dialog">
                                             <div class="modal-dialog modal-ml " role="document">
                                                 <form id="form-pengguna" class="form-horizontal w-100" action="{{ route('biro.EditPengguna', $pengguna->id) }}" role="form" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title"><b>Tambah Akun Pengguna</b></h5>
+                                                            <h5 class="modal-title"><b>Edit Akun Pengguna</b></h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -69,13 +69,14 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="exampleInputPassword1" class="font-weight-bold">Kabupaten</label>
-                                                                <select class="form-control form-control-sm py-2 filter" name="kabupaten_id" id="filter-kabupaten" style="border-radius: 5px;" required>
+                                                                <select class="form-control form-control-sm filter js-example-basic-single" name="kabupaten_id" required>
                                                                     <option value="" disabled>Pilih Kabupaten</option>
                                                                     @foreach ($kabupaten as $dataKabupaten)
                                                                     @if ($pengguna->kabupaten_id == $dataKabupaten->id)
                                                                     <option value="{{ $dataKabupaten->id }}" selected>{{ $dataKabupaten->kabupaten }}</option>                                                                        
-                                                                    @endif
+                                                                    @else
                                                                     <option value="{{ $dataKabupaten->id }}">{{ $dataKabupaten->kabupaten }}</option>
+                                                                    @endif
                                                                     @endforeach
                                                                 </select>
                                                             </div>
@@ -105,7 +106,7 @@
 </div>
 
 
-<div id="modal-pengguna" class="modal fade" tabindex="-1" role="dialog">
+<div id="modal-pengguna" class="modal fade" role="dialog">
     <div class="modal-dialog modal-ml " role="document">
         <form id="form-pengguna" class="form-horizontal w-100" action="{{ route('biro.TambahPengguna') }}" role="form" method="POST" enctype="multipart/form-data">
             @csrf
@@ -128,7 +129,7 @@
                     </div>
                     <div class="form-group py-2">
                         <label for="exampleInputPassword1" class="font-weight-bold">Kabupaten</label>
-                        <select class="form-control form-control-sm filter py-2" style="border-radius: 5px;" name="kabupaten_id" id="filter-kabupaten" required>
+                        <select class="form-control form-control-sm filter py-2 js-example-basic-single" style="border-radius: 5px;" name="kabupaten_id" id="filter-kabupaten" required>
                             <option value="" selected disabled>Pilih Kabupaten</option>
                             @foreach ($kabupaten as $dataKabupaten)
                                 <option value="{{ $dataKabupaten->id }}">{{ $dataKabupaten->kabupaten }}</option>

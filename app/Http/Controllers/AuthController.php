@@ -16,17 +16,35 @@ class AuthController extends Controller
     }
     public function login(Request $request)
     {
+        // $request->validate([
+        //     'email' => 'required|email',
+        //     'password' => 'required|min:8'
+        // ]);
+
+        // $credentials = $request->only('email', 'password');
+
+        // if (!Auth::attempt($credentials)) return redirect("login")->withErrors(['msg' => 'The Message']);
+
+        // if (auth()->user()->role == 'dealer') return redirect(route('dealer.dashboard'))->withSuccess('Signed in');
+        // if (auth()->user()->role == 'biro') return redirect(route('biro.BiroDashboard'))->withSuccess('Signed in');
+
         $request->validate([
+
             'email' => 'required|email',
-            'password' => 'required|min:8'
+            'password' => 'required',
         ]);
-
-        $credentials = $request->only('email', 'password');
-
-        if (!Auth::attempt($credentials)) return redirect("login")->withErrors('Login details are not valid');
-
-        if (auth()->user()->role == 'dealer') return redirect(route('dealer.dashboard'))->withSuccess('Signed in');
-        if (auth()->user()->role == 'biro') return redirect(route('biro.BiroDashboard'))->withSuccess('Signed in');
+        if(Auth::attempt($request->only('email','password'))){
+            if (auth()->user()->role == 'biro') {
+    
+                return redirect()->route('biro.Dashboard');
+            } 
+            elseif (auth()->user()->role == 'dealer') {
+                return redirect()->route('dealer.ashboard');
+            }
+        }else{
+            toast('Gagal Login, <br> <small>Cek kembali Email dan Password Anda</small>','error');
+            return redirect()->route('login');
+        }
     }
 
     public function registration()

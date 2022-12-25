@@ -1,7 +1,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 	<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 		<a class="navbar-brand brand-logo mr-4" href="index.html">
-			<img src="{{ asset('images/logofakturbesar.png') }}" class="ml-3" alt="logo" />
+			<img src="{{ asset('images/Logofakturbesar.png') }}" class="ml-3" alt="logo" />
 		</a>
 		<a class="navbar-brand brand-logo-mini" href="index.html">
 			<img class="img-responsive ml-3" src="{{ asset('images/logokecil.png') }}" alt="logo" />
@@ -17,10 +17,10 @@
 			<li class="nav-item nav-profile dropdown">
 				<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
 					<h5 class="d-inline mr-2">{{ auth()->user()->name }}</h5>
-					<img src="{{ asset('images/faces/face28.jpg') }}" alt="profile" />
+					<img src="{{ ('storage') }}/{{ auth()->user()->foto }}" alt="profile" />
 				</a>
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-					<a class="dropdown-item" href="{{ route('dealer.pengaturan.index') }}">
+					<a class="dropdown-item" href="{{ route('biro.Pengaturan') }}">
 						<i class="ti-settings text-primary"></i>
 						Pengaturan
 					</a>

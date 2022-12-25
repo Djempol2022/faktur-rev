@@ -2,13 +2,13 @@
 	{{-- @dealer --}}
 	@if (Auth::user()->role == "dealer")
 		<ul class="nav">
-			<x-sidebar-item :href="route('dealer.dashboard')" :active="request()->routeIs('dealer.dashboard*')" icon="mdi-view-dashboard">
+			<x-sidebar-item :href="route('dealer.Dashboard')" :active="request()->routeIs('dealer.Dashboard*')" icon="mdi-view-dashboard">
 				{{ __('Dashboard') }}
 			</x-sidebar-item>
-			<x-sidebar-item :href="route('dealer.data-faktur')" :active="request()->routeIs('dealer.data-faktur*')" icon="mdi-database">
+			<x-sidebar-item :href="route('dealer.DataFakturDealer')" :active="request()->routeIs('dealer.DataFakturDealer*')" icon="mdi-database">
 				{{ __('Data Faktur') }}
 			</x-sidebar-item>
-			<x-sidebar-item :href="route('dealer.pengaturan.index')" :active="request()->routeIs('dealer.pengaturan*')" icon="mdi-settings">
+			<x-sidebar-item :href="route('Pengaturan')" :active="request()->routeIs('Pengaturan*')" icon="mdi-settings">
 				{{ __('Pengaturan') }}
 			</x-sidebar-item>
 			<x-sidebar-item :href="route('logout')" :active="request()->routeIs('logout*')" icon="mdi-logout">
@@ -20,7 +20,7 @@
 	{{-- @biro --}}
 	@elseif (Auth::user()->role == "biro")
 		<ul class="nav">
-			<x-sidebar-item :href="route('biro.BiroDashboard')" :active="request()->routeIs('biro.BiroDashboard*')" icon="mdi-view-dashboard">
+			<x-sidebar-item :href="route('biro.Dashboard')" :active="request()->routeIs('biro.Dashboard*')" icon="mdi-view-dashboard">
 				{{ __('Dashboard') }}
 			</x-sidebar-item>
 			<x-sidebar-item :href="route('biro.DataFaktur')" :active="request()->routeIs('biro.DataFaktur*')" icon="mdi-database">
@@ -29,7 +29,7 @@
 			<x-sidebar-item :href="route('biro.DataPengguna')" :active="request()->routeIs('biro.DataPengguna*')" icon="mdi-account">
 				{{ __('Data Pengguna') }}
 			</x-sidebar-item>
-			<x-sidebar-item :href="route('biro.Pengaturan')" :active="request()->routeIs('biro.Pengaturan*')" icon="mdi-settings">
+			<x-sidebar-item :href="route('Pengaturan')" :active="request()->routeIs('Pengaturan*')" icon="mdi-settings">
 				{{ __('Pengaturan') }}
 			</x-sidebar-item>
 			<x-sidebar-item :href="route('logout')" :active="request()->routeIs('logout*')" icon="mdi-logout">

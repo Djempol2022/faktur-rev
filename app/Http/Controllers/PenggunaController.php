@@ -49,12 +49,12 @@ class PenggunaController extends Controller
     }
 
     public function pengaturan(){
-        return view('biro.pengaturan.index');
+        return view('pengaturan.index');
     }
 
     public function edit_profil(){
         $data_profil = User::where('id', Auth::user()->id)->first();
-        return view('biro.pengaturan.edit_profil', compact('data_profil'));
+        return view('pengaturan.edit_profil', compact('data_profil'));
     }
 
     public function profil_update(Request $request){
@@ -72,12 +72,12 @@ class PenggunaController extends Controller
         }
         $profil_updated->save();
         Alert::success('Sukses','Berhasil Mengubah Data Profil');
-        return redirect()->route('biro.Pengaturan');
+        return redirect()->back();
     }
 
     public function edit_password(){
         $data_password = User::where('id', Auth::user()->id)->first();
-        return view('biro.pengaturan.edit_password', compact('data_password'));
+        return view('pengaturan.edit_password', compact('data_password'));
     }
 
     public function password_update(Request $request){
