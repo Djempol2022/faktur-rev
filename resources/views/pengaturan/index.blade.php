@@ -30,6 +30,7 @@
 						</div>
 					</div>
 				</div>
+				@if (Auth::user()->role == "biro")
 				<div class="col-md-4 mb-4 stretch-card transparent">
 					<div class="card card-dark-blue card-dashboard-biro" style="border-radius:30px">
 						<div class="card-body py-5">
@@ -40,6 +41,7 @@
 						</div>
 					</div>
 				</div>
+				@endif
 			</div>
 		</div>
 	</div>

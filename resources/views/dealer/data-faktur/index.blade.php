@@ -315,6 +315,12 @@
 @section('script')
 
 <script type="text/javascript">
+
+    $(".tampil_kabupaten").click(function () {
+        $(".tampil_kabupaten").removeClass("active");
+        $(this).addClass("active");
+    });
+    
     let list_faktur = [];
     let data_status = $('#filter-status').val()
     var data_kabupaten_id = $(this).attr('kabupaten-id');

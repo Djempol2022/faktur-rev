@@ -5,7 +5,7 @@
 		<div class="col-md-12 grid-margin">
 			<div class="row">
 				<div class="col-12 col-xl-8 mb-4 mb-xl-0"> {{-- Content Head --}}
-					<h3 class="font-weight-bold">Selamat Datang, Roban Motor 👋</h3>
+					<h3 class="font-weight-bold">Selamat Datang, {{ Auth::user()->name}}</h3>
 					<h6 class="font-weight-normal mb-0">Pantau proses faktur anda dengan aplikasi ini.</h6>
 				</div>
 				<div class="col-12 col-xl-4"> {{-- Time Dropdown --}}
@@ -23,7 +23,7 @@
 								<option value="8">Agustus</option>
 								<option value="9">September</option>
 								<option value="10">Oktober</option>
-								<option value="11">november</option>
+								<option value="11">November</option>
 								<option value="12">Desember</option>
 							</select>
 							{{-- <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2"
@@ -58,7 +58,7 @@
 					<div class="card card-tale border card-dashboard-biro">
 						<div class="card-body" style="padding-top: 2rem;">
 							<p class="mb-4 Font-20">Faktur Masuk</p>
-							<p class="fs-30 mb-2 Font-32 font-weight-bold">{{ $faktur_hariini }} Faktur</p>
+							<p class="total-faktur-masuk fs-30 mb-2 Font-32 font-weight-bold">{{ $faktur_hariini }} Faktur</p>
 						</div>
 					</div>
 				</div>
@@ -100,7 +100,8 @@
             },
             type: 'post',
             success: function (resp) {
-                $(".total-terverifikasi").html(resp);
+                $(".total-terverifikasi").html(resp.data1).append("&nbsp;<b>Faktur</b>");
+				$(".total-faktur-masuk").html(resp.data2).append("&nbsp;<b>Faktur</b>");
             },
             error: function () {
                 alert("error");

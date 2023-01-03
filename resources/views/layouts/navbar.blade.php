@@ -17,10 +17,10 @@
 			<li class="nav-item nav-profile dropdown">
 				<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
 					<h5 class="d-inline mr-2">{{ auth()->user()->name }}</h5>
-					<img src="{{ ('storage') }}/{{ auth()->user()->foto }}" alt="profile" />
+					<img src="{{ url('storage/'.Auth::user()->foto) }}" alt="profile" />
 				</a>
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-					<a class="dropdown-item" href="{{ route('biro.Pengaturan') }}">
+					<a class="dropdown-item" href="{{ route('Pengaturan') }}">
 						<i class="ti-settings text-primary"></i>
 						Pengaturan
 					</a>

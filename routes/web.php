@@ -28,7 +28,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth'])->group(function () {
     // DEALER
     Route::prefix('dealer')->name('dealer.')->middleware(['isDealer'])->group(function () {
-        Route::get('/data-faktur-dealer',     [FakturController::class, 'data_faktur_dealer'])->name('DataFakturDealer');
+        Route::get('/dataFakturDealer',     [FakturController::class, 'data_faktur_dealer'])->name('DataFakturDealer');
         Route::post('/tambah-data-faktur',    [FakturController::class, 'tambah_data_faktur'])->name('TambahFaktur');
         Route::get('/',                       [FakturController::class, 'index_dealer'])->name('Dashboard');
 
@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
 
     // BIRO
     Route::prefix('biro')->name('biro.')->middleware(['isBiro'])->group(function () {
-        Route::get('/data-faktur',          [FakturController::class, 'data_faktur'])->name('DataFaktur');
+        Route::get('/dataFaktur',          [FakturController::class, 'data_faktur'])->name('DataFaktur');
         Route::get('/',                     [FakturController::class, 'index'])->name('Dashboard');
         Route::any('/faktur',               [FakturController::class, 'data'])->name('Faktur');
         Route::patch('/kirim-ke-dealer',    [FakturController::class, 'kirim_ke_dealer'])->name('KirimKeDealer');
@@ -58,7 +58,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/kelola-kabupaten',     [BerandaController::class, 'data_kabupaten'])->name('KelolaKabupaten');
         Route::post('/aktif-kabupaten',     [BerandaController::class, 'aktifkan_kabupaten'])->name('AktifkanKabupaten');
         Route::get('/hapus-kabupaten/{id}', [BerandaController::class, 'nonaktifkan_kabupaten']);
-        Route::get('/pengaturan',           [PenggunaController::class, 'pengaturan'])->name('Pengaturan');
     });
 
     // Log Out

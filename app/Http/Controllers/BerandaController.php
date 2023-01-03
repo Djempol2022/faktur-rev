@@ -17,8 +17,12 @@ class BerandaController extends Controller
 
         if($request->ajax()){
             $data = $request->all();
-            $dataFaktur = Faktur::whereMonth('created_at', $data['bulan_value'])->count();
-            return response()->json($dataFaktur);
+            $fakturTerverifikasi = Faktur::whereMonth('created_at', $data['bulan_value'])->where('status_id', 2)->count();
+            $dataFakturMasuk = Faktur::whereMonth('created_at', $data['bulan_value'])->where('status_id', 3)->count();
+            return response()->json([
+                'data1'=>$fakturTerverifikasi,
+                'data2'=>$dataFakturMasuk
+            ]);
         }
     }
 

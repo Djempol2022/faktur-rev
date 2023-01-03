@@ -5,7 +5,7 @@
 		<div class="col-md-12 grid-margin">
 			<div class="row">
 				<div class="col-12 col-xl-8 mb-4 mb-xl-0"> {{-- Content Head --}}
-					<h3 class="font-weight-bold">Selamat Datang, Roban Motor 👋</h3>
+					<h3 class="font-weight-bold">Selamat Datang, , {{ Auth::user()->name}}</h3>
 					<h6 class="font-weight-normal mb-0">Pantau proses faktur anda dengan aplikasi ini.</h6>
 				</div>
 				<div class="col-12 col-xl-4"> {{-- Time Dropdown --}}

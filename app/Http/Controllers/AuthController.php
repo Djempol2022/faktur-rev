@@ -39,7 +39,7 @@ class AuthController extends Controller
                 return redirect()->route('biro.Dashboard');
             } 
             elseif (auth()->user()->role == 'dealer') {
-                return redirect()->route('dealer.ashboard');
+                return redirect()->route('dealer.Dashboard');
             }
         }else{
             toast('Gagal Login, <br> <small>Cek kembali Email dan Password Anda</small>','error');

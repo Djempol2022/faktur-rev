@@ -10,8 +10,8 @@
 <div class="row justify-content-between">
     <div class="col-md-12" style="padding-top: 2.1rem">
             <div class="template-demo">
-                <a href="#" status-id=""
-                    class="btn btn-status tampil_status"
+                <a id="btn1" href="#" status-id=""
+                    class="btn btn-status tampil_status active"
                     data-original-title="Semua Data">
                     Semua Data
                 </a>
@@ -39,15 +39,14 @@
             </div>
     </div>
     <div class="col-md-4 py-3">
-            
-                <select class="form-control form-control-sm filter py-1" style="width: 
-                167px; border-radius: 12px;" id="filter-kabupaten">
-                    <option value="">Pilih Kabupaten</option>
-                    @foreach ($kabupaten as $dataKabupaten)
-                    <option value="{{ $dataKabupaten->id }}">{{ $dataKabupaten->kabupaten }}</option>
-                    @endforeach
-                </select>
-          
+        <select class="form-control form-control-sm filter py-1" style="width: 
+        167px; border-radius: 12px;" id="filter-kabupaten">
+            <option value="" disabled selected>Pilih Kabupaten</option>
+            <option value="" >Semua Kabupaten</option>
+            @foreach ($kabupaten as $dataKabupaten)
+            <option value="{{ $dataKabupaten->id }}">{{ $dataKabupaten->kabupaten }}</option>
+            @endforeach
+        </select>
     </div>
 </div>
 <div class="row justify-content-between">
@@ -80,7 +79,7 @@
     right: 0;
     left: 0;
     margin-top: 20px;
-    margin-bottom: 16%;
+    margin-bottom: 10%;"
     role="document">
         <form id="form-edit1" class="form-horizontal w-100" action="{{ route('biro.VerifikasiSamsat') }}" role="form"
             data-parsley-validate novalidate method="POST" enctype="multipart/form-data">
@@ -200,11 +199,78 @@
     </div>
 </div>
 
+<div id="modal-edit3" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-md" style="position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 20px;
+    margin-bottom: 16%;
+    role="document">
+        <form id="form-edit3" class="form-horizontal w-100" role="form">
+            @csrf
+            <input type="hidden" name="id" hidden>
+            {{ method_field('PATCH') }}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><b>Detail Data Faktur&nbsp;</h5><h5 class="modal-title nama_nasabah" style="font-weight: bold"></h5></b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>         
+                <div class="modal-body py-0">
+                    <div class="form-group">
+						<strong>Nomor Faktur</strong>
+						<p name="nomor_faktur" class="nomor_faktur" id="nomor_faktur"></p>
+                    </div>
+                    <div class="form-group">
+						<strong>Nama Dealer</strong>
+						<p name="nama_dealer" class="nama_dealer" id="nama_dealer"></p>
+                    </div>
+                    <div class="form-group">
+						<strong>Nama Nasabah</strong>
+						<p name="nama_nasabah" class="nama_nasabah" id="nama_nasabah"></p>
+                    </div>
+                    <div class="form-group">
+						<strong>Nomor Rangka</strong>
+						<p name="nomor_rangka" class="nomor_rangka" id="nama_nasabah"></p>
+                    </div>
+                    <div class="form-group">
+						<strong>Nomor Mesin</strong>
+						<p name="nomor_faktur" class="nomor_mesin" id="nomor_mesin"></p>
+                    </div>
+                    <div class="form-group">
+						<strong>Nama Kabupaten</strong>
+						<p name="nomor_faktur" class="kabupaten_id" id="kabupaten_id"></p>
+                    </div>
+                    <div class="form-group">
+						<strong>Tanggal In</strong>
+						<p name="created_at" class="created_at" id="created_at"></p>
+                    </div>
+                    <div class="form-group">
+						<strong>Tanggal Out</strong>
+						<p name="updated_at" class="updated_at" id="updated_at"></p>
+                    </div>
+                    <div class="form-group">
+                        <strong>Status</strong>
+						<p name="status_id" class="status_id btn-success" id="status_id" style="padding-left: 2px;border-radius: 4px;color: white;font-weight: bold;width: 25%;"></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 @endsection
 @section('script')
 
 
 <script type="text/javascript">
+
+    $(".tampil_status").click(function () {
+        $(".tampil_status").removeClass("active");
+        $(this).addClass("active");
+    });
+
     let list_faktur = [];
     let data_kabupaten = $('#filter-kabupaten').val()
     var data_status_id = $(this).attr('status-id');
@@ -300,8 +366,6 @@
 
     function tampilDetailFaktur1(id) {
         const faktur = list_faktur[id]
-		var data_status_id = faktur.status_id
-
         $("#modal-edit1").modal('show')
         $("#form-edit1 [name='id']").val(id)
         $("#form-edit1 .nomor_faktur").text(faktur.nomor_faktur)
@@ -310,12 +374,11 @@
         $("#form-edit1 .nomor_rangka").text(faktur.nomor_rangka)
         $("#form-edit1 .nomor_mesin").text(faktur.nomor_mesin)
         $("#form-edit1 .kabupaten_id").text(faktur.kabupaten_relasi.kabupaten)
-        $("#form-edit1 .created_at").text(faktur.created_at)
+        $("#form-edit1 .created_at").text(moment(faktur.created_at).format('YYYY MMMM DD, h:mm:ss a'))
     }
 
     function tampilDetailFaktur2(id) {
         const faktur = list_faktur[id]
-		var data_status_id = faktur.status_id
 
         $("#modal-edit2").modal('show')
         $("#form-edit2 [name='id']").val(id)
@@ -325,8 +388,24 @@
         $("#form-edit2 .nomor_rangka").text(faktur.nomor_rangka)
         $("#form-edit2 .nomor_mesin").text(faktur.nomor_mesin)
         $("#form-edit2 .kabupaten_id").text(faktur.kabupaten_relasi.kabupaten)
-        $("#form-edit2 .created_at").text(faktur.created_at)
-        $("#form-edit2 .updated_at").text(faktur.updated_at)
+        $("#form-edit2 .created_at").text(moment(faktur.created_at).format('YYYY MMMM DD, h:mm:ss a'))
+        $("#form-edit2 .updated_at").text(moment(faktur.updated_at).format('YYYY MMMM DD, h:mm:ss a'))
+    }
+
+    function tampilDetailFaktur3(id) {
+        const faktur = list_faktur[id]
+
+        $("#modal-edit3").modal('show')
+        $("#form-edit3 [name='id']").val(id)
+        $("#form-edit3 .nomor_faktur").text(faktur.nomor_faktur)
+        $("#form-edit3 .nama_nasabah").text(faktur.nama_nasabah)
+        $("#form-edit3 .nama_dealer").text(faktur.user_relasi.name)
+        $("#form-edit3 .nomor_rangka").text(faktur.nomor_rangka)
+        $("#form-edit3 .nomor_mesin").text(faktur.nomor_mesin)
+        $("#form-edit3 .kabupaten_id").text(faktur.kabupaten_relasi.kabupaten)
+        $("#form-edit3 .status_id").text(faktur.status_relasi.status)
+        $("#form-edit3 .created_at").text(moment(faktur.created_at).format('YYYY MMMM DD, h:mm:ss a'))
+        $("#form-edit3 .updated_at").text(moment(faktur.updated_at).format('YYYY MMMM DD, h:mm:ss a'))
     }
 
     $("#form-edit2").on('submit', function(e){

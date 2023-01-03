@@ -14,7 +14,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class FakturController extends Controller
 {
     public function index(){
-        $faktur_hariini = Faktur::where('created_at', Carbon::now())->count();
+        $faktur_hariini = Faktur::whereMonth('created_at', Carbon::now()->month)->where('status_id', 3)->count();
         // $carbon = Carbon::now();
         // ddd($carbon);
         $faktur_semua = Faktur::count();
@@ -62,7 +62,8 @@ class FakturController extends Controller
         if($request->input('search.value')!=null){
             $data = $data->where(function($q)use($request){
                 $q->whereRaw('LOWER(nomor_faktur) like ?',['%'.strtolower($request->input('search.value')).'%'])
-                ->orWhereRaw('LOWER(nama_nasabah) like ?',['%'.strtolower($request->input('search.value')).'%']);
+                ->orWhereRaw('LOWER(nama_nasabah) like ?',['%'.strtolower($request->input('search.value')).'%'])
+                ->orWhereRaw('LOWER(created_at) like ?',['%'.strtolower($request->input('search.value')).'%']);
             });
         }
 
